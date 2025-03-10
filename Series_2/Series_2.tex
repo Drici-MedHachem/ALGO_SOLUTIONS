@@ -1,0 +1,315 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % For including images
+\usepackage{fancyhdr} % For custom headers and footers
+\usepackage{amsmath} % For math equations
+\usepackage{listings} % For code listings
+\usepackage{xcolor} % For coloring code
+\usepackage{geometry} % For adjusting page margins
+\geometry{a4paper, margin=1in}
+
+% Define the header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Drici Mohammed Hachem - Group A5}}
+\fancyfoot[C]{\thepage}
+
+% Define code listing style for C
+\lstset{
+	language=C, % Set language to C
+	basicstyle=\small\ttfamily, % Basic font style
+	numbers=left, % Add line numbers on the left
+	numberstyle=\tiny\color{gray}, % Style for line numbers
+	backgroundcolor=\color{white}, % Background color
+	keywordstyle=\color{blue}, % Color for keywords (e.g., int, if, return)
+	commentstyle=\color{green}, % Color for comments (e.g., // or /* ... */)
+	stringstyle=\color{red}, % Color for strings (e.g., "Hello, World!")
+	showstringspaces=false, % Don't show spaces in strings
+	frame=single, % Add a frame around the code
+	breaklines=true, % Automatically break long lines
+	tabsize=4, % Set tab size to 4 spaces
+	captionpos=b, % Caption position (bottom)
+	xleftmargin=0pt, % Remove left margin
+	framexleftmargin=0pt, % Align frame with the left margin
+	morekeywords={printf, scanf, main, include} % Add additional C-specific keywords
+}
+
+% Exercise Template
+% \section*{Exercise 1}
+% \vspace{0.5cm}
+% \textbf{Solution:} Explain your solution here. You can include mathematical equations if needed:
+% \[
+% E = mc^2
+% \]
+% \vspace{1cm}
+% \textbf{Code:} Write your code below using the \texttt{lstlisting} environment.
+% \begin{lstlisting}
+%	# Your code here
+%	def hello_world():
+%	print("Hello, World!")
+%	
+%	hello_world()
+% \end{lstlisting}
+% \vspace{2cm}
+
+\begin{document}
+	
+	% First Page
+	\begin{titlepage}
+		\centering
+		\vspace*{2cm}
+		
+		\textbf{\Large People's Democratic Republic of Algeria}\\
+		\vspace{0.5cm}
+		\textbf{\large Echahid Hamma Lakhdar University}\\
+		
+		\vspace{1cm}
+		\includegraphics[width=10cm]{university_logo.png} % Replace with your university logo file name
+		
+		\vspace{1.5cm}
+		\rule{\textwidth}{1pt}
+		\vspace{0.5cm}
+		
+		\textbf{\Large DS \& ALGO : Series 02}\\
+		\vspace{0.5cm}
+		\rule{\textwidth}{1pt}
+		\vspace{0.5cm}
+		
+		\vspace{1.5cm}
+		\textbf{\Huge Drici Mohammed Hachem}\\
+		\vspace{0.5cm}
+		\textbf{\Large Group A5}\\
+		
+		\vfill
+	\end{titlepage}
+	
+	% Second Page
+	\newpage
+	\section*{Exercise 1}
+	 \vspace{0.5cm}
+	 
+	 \textbf{Code:} 
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+	//first version
+	int a,b,i,prod = 0;
+	do {
+		printf("Enter two positive integers a,b : ");
+		scanf("%d %d" , &a , &b);
+		if(a < 1 || b < 1) {
+			printf("Error! both integers must be positive");
+		}
+	}while(a < 1 || b < 1);
+	for(i = 0 ; i < b; i++ ) {
+		prod += a;
+	}
+	printf("%d x %d = %d \n", a , b , prod);
+	//second version
+	int A,A_copy,B,div = 0;
+	do {
+		printf("Enter two positive integers a,b such that a > b : ");
+		scanf("%d %d" , &A , &B);
+		if(A < 1 || B < 1 || B > A) {
+			printf("Error! both integers must be positive and a > b");
+		}
+	}while(A < 1 || B < 1 || B > A);
+	A_copy = A;
+	while(A_copy >= B) {
+		A_copy -= B;
+		div++;
+	}
+	printf("The integer division %d / %d = %d \n ", A , B , div);
+	return 0;
+}
+		 
+\end{lstlisting}
+\vspace{1cm}
+	
+
+\section*{Exercise 2}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+	int n,fact = 1,i;
+	do {
+		printf("Enter a positive integer : ");
+		scanf("%d" , &n);
+		if(n < 0) {
+			printf("Error! the integer must be positive");
+		}
+	}while(n < 0);
+	if(n == 0 || n == 1) {
+		printf("%d ! = 1",n);
+	}
+	else {
+		for(i = 2; i <= n ; i++) {
+			fact *= i;
+		}
+		printf("%d! = %d ",n , fact);
+	}
+	return 0;
+}
+	
+\end{lstlisting}
+\vspace{1cm}
+
+\section*{Exercise 3}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+	int n , S_1=0;
+	float a , x , S_2 = 0 , S_3 = 0, S_4 = 0;
+	//S_1
+	do{
+		printf("Enter an odd number n between 20 and 100: ");
+		scanf("%d",&n);
+		if(n < 20 || n > 100 || n % 2 != 1) {
+			printf("The number must me odd and between 20 and 100");
+		}
+	}while(n < 20 || n > 100 || n % 2 != 1);
+	int i = 1;
+	int sign = 1;
+	while(i <= n) {
+		S_1 += i * sign;
+		sign = -sign;
+		i += 2;
+	}
+	printf("S_1 = %d \n",S_1);
+	//S_2
+	do{
+		printf("Enter an integer n between 10 and 50");
+		scanf("%d",&n);
+		if(n < 10 || n > 50 ) {
+			printf("The number n must be between 10 and 50");
+		}
+	}while(n < 10 || n > 50);
+	for(i = 1 ; i <= n ; i++) {
+		S_2 += (float) i / (2*i-1);
+	}
+	printf("S_2 = %f \n",S_2);
+	//S_3
+	do{
+		printf("Enter an integer n strictly greater than 5 and a real number x");
+		scanf("%d %f",&n,&x);
+		if(n < 5) {
+			printf("n must be strictly greater than 5");
+		}
+	}while(n < 5);
+	int fact = 1;
+	for(i = 1 ; i <= n+1 ; i++) {
+		S_3 = (float)(x+i-1) / fact;
+		fact *= (i+1);
+	}
+	printf("S_3 = %f \n",S_3);
+	//S_4
+	do{
+		printf("Enter two real numbers a , x and an integer n greater than 10 ");
+		scanf("%f %f %d",&a,&x,&n);
+		if(n < 10) {
+			printf("The number n must be greater than 10");
+		}
+	}while(n < 10);
+	for(i = 2 ; i < n ; i++) {
+		x *= x;
+	}
+	for( i = 1 ; i <= n ; i++) {
+		S_4 += a * x;
+		a *= a;
+		x /= x;
+	}
+	printf("S_4 = %f", S_4);
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+
+\section*{Exercise 4}
+\vspace{0.5cm}
+
+\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+	int n,m,number,div,div_sum;
+	do{
+		printf("Enter two strictly positive integers n , m such that n < m : ");
+		scanf("%d %d",&n , &m);
+		if(n < 0 || m < 0 || n > m) printf("n , m must be strictly postiive and n < m");
+	}while(n < 0 || m < 0 || n > m);
+	
+	for(number  = n ; number <= m ; number++) {
+		div_sum = 1;
+		for(div = 2 ; div <= number/2 ; div++) {
+			if(number % div == 0) {
+				div_sum += div;
+			}
+		}
+		if(div_sum == number) printf("%d is a perfect number \n",number);
+	}
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+\section*{Exercise 5}
+\vspace{0.5cm}
+
+\textbf{Code:}
+\begin{lstlisting}
+#include <stdio.h>
+
+int main() {
+	int n;
+	float u = 2.0, v, sum = 0.0;
+	
+	for (n = 0; n < 100; n++) {
+		v = 1 - (1 / u);   
+		sum += v;        
+		u = 1 + (1 / v);    
+	}
+	printf(": %f \n", sum);
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+\section*{Exercise 6}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include<stdio.h> 
+
+int main() {
+	int n,n_copy,possible_digits,digit,counter;
+	do{
+		printf("Enter a strictly positive integer n : ");
+		scanf("%d",&n);
+		if(n < 0) printf("n must be strictly positive");
+	}while(n < 0);
+	for(possible_digits = 0 ; possible_digits < 10 ; possible_digits++){
+		counter = 0;
+		n_copy = n;
+		while(n_copy >= 1) {
+			digit = n_copy % 10;
+			n_copy /= 10;
+			if(possible_digits == digit) counter++;
+		}
+		if(counter != 0) printf("The digit %d appeared %d times \n",possible_digits,counter);
+	}
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+
+
+
+\end{document}
