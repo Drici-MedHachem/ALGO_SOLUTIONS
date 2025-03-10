@@ -1,0 +1,307 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % For including images
+\usepackage{fancyhdr} % For custom headers and footers
+\usepackage{amsmath} % For math equations
+\usepackage{listings} % For code listings
+\usepackage{xcolor} % For coloring code
+\usepackage{geometry} % For adjusting page margins
+\geometry{a4paper, margin=1in}
+
+% Define the header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Drici Mohammed Hachem - Group A5}}
+\fancyfoot[C]{\thepage}
+
+% Define code listing style for C
+\lstset{
+	language=C, % Set language to C
+	basicstyle=\small\ttfamily, % Basic font style
+	numbers=left, % Add line numbers on the left
+	numberstyle=\tiny\color{gray}, % Style for line numbers
+	backgroundcolor=\color{white}, % Background color
+	keywordstyle=\color{blue}, % Color for keywords (e.g., int, if, return)
+	commentstyle=\color{green}, % Color for comments (e.g., // or /* ... */)
+	stringstyle=\color{red}, % Color for strings (e.g., "Hello, World!")
+	showstringspaces=false, % Don't show spaces in strings
+	frame=single, % Add a frame around the code
+	breaklines=true, % Automatically break long lines
+	tabsize=4, % Set tab size to 4 spaces
+	captionpos=b, % Caption position (bottom)
+	xleftmargin=0pt, % Remove left margin
+	framexleftmargin=0pt, % Align frame with the left margin
+	morekeywords={printf, scanf, main, include} % Add additional C-specific keywords
+}
+
+% Exercise Template
+% \section*{Exercise 1}
+% \vspace{0.5cm}
+% \textbf{Solution:} Explain your solution here. You can include mathematical equations if needed:
+% \[
+% E = mc^2
+% \]
+% \vspace{1cm}
+% \textbf{Code:} Write your code below using the \texttt{lstlisting} environment.
+% \begin{lstlisting}
+%	# Your code here
+%	def hello_world():
+%	print("Hello, World!")
+%	
+%	hello_world()
+% \end{lstlisting}
+% \vspace{2cm}
+
+\begin{document}
+	
+	% First Page
+	\begin{titlepage}
+		\centering
+		\vspace*{2cm}
+		
+		\textbf{\Large People's Democratic Republic of Algeria}\\
+		\vspace{0.5cm}
+		\textbf{\large Echahid Hamma Lakhdar University}\\
+		
+		\vspace{1cm}
+		\includegraphics[width=10cm]{university_logo.png} % Replace with your university logo file name
+		
+		\vspace{1.5cm}
+		\rule{\textwidth}{1pt}
+		\vspace{0.5cm}
+		
+		\textbf{\Large DS \& ALGO : CONDITIONAL INSTRUCTIONS SERIES}\\
+		\vspace{0.5cm}
+		\rule{\textwidth}{1pt}
+		\vspace{0.5cm}
+		
+		\vspace{1.5cm}
+		\textbf{\Huge Drici Mohammed Hachem}\\
+		\vspace{0.5cm}
+		\textbf{\Large Group A5}\\
+		
+		\vfill
+	\end{titlepage}
+	
+	% Second Page
+	\newpage
+	\section*{Exercise 1}
+	 \vspace{0.5cm}
+	 
+	 \textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+	int hours;
+	int cost;
+	scanf("%d", &hours);
+	if(hours <= 0) {
+		printf("Error\n");
+	} else {
+		if(hours <= 5) {
+			cost = hours * 50;
+		} else if (hours <= 10) {
+			cost = 5 * 50 + (hours - 5) * 40;
+		} else {
+			cost = 5 * 50 + 5 * 10 + (hours - 10) * 30;
+		}
+	}
+	printf("The total cost is %d DA\n", cost); 
+	
+	return 0;
+}
+		 
+\end{lstlisting}
+	\vspace{1cm}
+
+\section*{Exercise 2}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+	int dep_hours,dep_mins,ari_hours,ari_mins,travel_hours,travel_mins;
+	scanf("Enter the departure time and the arrival time : %d %d %d %d", &dep_hours, &dep_mins, &ari_hours, &ari_mins);
+	if(dep_hours < 0 || dep_hours > 23 || dep_mins < 0 || dep_mins > 59 || ari_hours < 0 || ari_hours > 23 || ari_mins < 0 || ari_mins > 59) {
+		printf("Error\n");
+	} else {
+		if(dep_hours <= ari_hours) {
+			travel_hours = ari_hours - dep_hours;
+			if(dep_mins <= ari_mins) {
+				travel_mins = ari_mins - dep_mins;
+			} else {
+				travel_mins = 60 - dep_mins + ari_mins;
+				travel_hours--;
+			}
+		} else {
+			travel_hours = 24 - dep_hours + ari_hours;
+			if(dep_mins <= ari_mins) {
+				travel_mins = ari_mins - dep_mins;
+			} else {
+				travel_mins = 60 - dep_mins + ari_mins;
+				travel_hours--;
+			}
+		}
+	}
+	printf("The total travel time is %d hours and %d minutes\n", travel_hours, travel_mins);
+	
+	return 0;
+}
+	
+\end{lstlisting}
+\vspace{1cm}
+
+\section*{Exercise 3}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+	//Version 1
+	int n;
+	printf("Enter an integer : ");
+	scanf("%d", &n);
+	if(n % 2) {
+		printf("The number %d is odd\n", n);
+	} else {
+		printf("The number %d is even\n", n);
+	}
+	//Version 2
+	if (n & 1) {
+		printf("The number %d is odd\n", n);
+	} else {
+		printf("The number %d is even\n", n);
+	}
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+
+\section*{Exercise 4}
+\vspace{0.5cm}
+
+\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+	float average;
+	printf("Enter the average of the student : ");
+	scanf("%f", &average);
+	if(average < 0 || average > 20) {
+		printf("Error");
+	} else {
+		if(average <= 9.99) {
+			printf("Echec\n");
+		} else if(average <= 13) {
+			printf("Passable\n");
+		} else if(average <= 15.99) {
+			printf("Bien\n");
+		} else if(average <= 19) {
+			printf("Tres Bien\n");
+		} else {
+			printf("Excellent\n");
+		}
+	}
+}
+\end{lstlisting}
+\vspace{1cm}
+\section*{Exercise 5}
+\vspace{0.5cm}
+
+\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+	int n;
+	printf("Enter an integer between 100 and 999 : ");
+	if(n < 100 || n > 999) {
+		printf("Error \n");
+	} else {
+		int first_digit = n / 100;
+		int last_digit = n % 10;
+		if(first_digit == last_digit) {
+			printf("The number is palindrome \n");
+		} else {
+			printf("The number is not palindrome \n");
+		}
+	}
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+\section*{Exercise 6}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+	int a,b,c,first,second,third;
+	printf("Enter three integers : ");
+	scanf("%d %d %d", &a, &b, &c);
+	
+	if(a >= b) {
+		first = a;
+		if(b >= c) {
+			second = b;
+			third = c;
+		} else {
+			second = c;
+			third = b;
+		}
+	} else {   
+		if(a >= c) {
+			second = a;
+			first = b;
+			third = c;
+		} else {
+			second = c;
+			first = b;
+			third = a;
+		}
+	}
+	printf("The integers in ascending order are : %d %d %d\n", third, second, first);
+	
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+\newpage
+\section*{Exercise 7}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+	float a,b,res;
+	char op;
+	printf("Enter an operation: ");
+	scanf("%f %c %f", &a, &op, &b);
+	
+	if(op == '/' && b == 0) {
+		printf("Division by zero is not allowed\n");
+	} else {
+		if(op == '+') { res = a+b; printf("Result: %f\n", res);}
+		else if (op == '-') {res = a-b; printf("Result: %f\n", res);}
+		else if (op == '*') {res = a*b; printf("Result: %f\n", res);}
+		else if (op == '/') {res = a/b;  printf("Result: %f\n", res);}
+		else printf("Invalid operation\n");
+		
+	}
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+
+
+
+\end{document}

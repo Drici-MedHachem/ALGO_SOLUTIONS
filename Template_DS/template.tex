@@ -1,0 +1,433 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % For including images
+\usepackage{fancyhdr} % For custom headers and footers
+\usepackage{amsmath} % For math equations
+\usepackage{listings} % For code listings
+\usepackage{xcolor} % For coloring code
+\usepackage{geometry} % For adjusting page margins
+\geometry{a4paper, margin=1in}
+
+% Define the header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Drici Mohammed Hachem - Group A5}}
+\fancyfoot[C]{\thepage}
+
+% Define code listing style for C
+\lstset{
+	language=C, % Set language to C
+	basicstyle=\small\ttfamily, % Basic font style
+	numbers=left, % Add line numbers on the left
+	numberstyle=\tiny\color{gray}, % Style for line numbers
+	backgroundcolor=\color{white}, % Background color
+	keywordstyle=\color{blue}, % Color for keywords (e.g., int, if, return)
+	commentstyle=\color{green}, % Color for comments (e.g., // or /* ... */)
+	stringstyle=\color{red}, % Color for strings (e.g., "Hello, World!")
+	showstringspaces=false, % Don't show spaces in strings
+	frame=single, % Add a frame around the code
+	breaklines=true, % Automatically break long lines
+	tabsize=4, % Set tab size to 4 spaces
+	captionpos=b, % Caption position (bottom)
+	xleftmargin=0pt, % Remove left margin
+	framexleftmargin=0pt, % Align frame with the left margin
+	morekeywords={printf, scanf, main, include} % Add additional C-specific keywords
+}
+
+% Exercise Template
+% \section*{Exercise 1}
+% \vspace{0.5cm}
+% \textbf{Solution:} Explain your solution here. You can include mathematical equations if needed:
+% \[
+% E = mc^2
+% \]
+% \vspace{1cm}
+% \textbf{Code:} Write your code below using the \texttt{lstlisting} environment.
+% \begin{lstlisting}
+%	# Your code here
+%	def hello_world():
+%	print("Hello, World!")
+%	
+%	hello_world()
+% \end{lstlisting}
+% \vspace{2cm}
+
+\begin{document}
+	
+	% First Page
+	\begin{titlepage}
+		\centering
+		\vspace*{2cm}
+		
+		\textbf{\Large People's Democratic Republic of Algeria}\\
+		\vspace{0.5cm}
+		\textbf{\large Echahid Hamma Lakhdar University}\\
+		
+		\vspace{1cm}
+		\includegraphics[width=10cm]{university_logo.png} % Replace with your university logo file name
+		
+		\vspace{1.5cm}
+		\rule{\textwidth}{1pt}
+		\vspace{0.5cm}
+		
+		\textbf{\Large DS \& ALGO : Series 01}\\
+		\vspace{0.5cm}
+		\rule{\textwidth}{1pt}
+		\vspace{0.5cm}
+		
+		\vspace{1.5cm}
+		\textbf{\Huge Drici Mohammed Hachem}\\
+		\vspace{0.5cm}
+		\textbf{\Large Group A5}\\
+		
+		\vfill
+	\end{titlepage}
+	
+	% Second Page
+	\newpage
+	\section*{Exercise 1}
+	 \vspace{0.5cm}
+	 
+	 \textbf{Code:} Using a third variable $c$
+\begin{lstlisting}
+#include <stdio.h>
+
+int main() {
+	int a,b,c;
+	printf("Enter the value of a and b : ");
+	scanf("%d %d" ,&a,&b);
+	printf("Before swapping : a = %d , b = %d \n",a,b);
+	c = a;
+	a = b;
+ 	b = c;
+ 	printf("After swapping : a = %d , b = %d",a,b);
+ 	return 0;
+ }
+		 
+\end{lstlisting}
+	\vspace{1cm}
+	
+	 \textbf{Code:} Without using a third variable
+\begin{lstlisting}
+#include <stdio.h>
+
+int main() {
+	int a,b;
+	printf("Enter the value of a and b : ");
+	scanf("%d %d" ,&a,&b);
+	printf("Before swapping : a = %d , b = %d \n",a,b);
+	a = a+b;
+	b = a-b;
+	a = a-b;
+	printf("After swapping : a = %d , b = %d",a,b);
+	return 0;
+}
+\end{lstlisting}
+
+\section*{Exercise 2}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include <stdio.h>
+
+int main() {
+	int a;
+	printf("Enter the value of a in Octal : ");
+	scanf("%o" ,&a);
+	printf("in decimal a = %d, in hexadecimal a = %x",a,a);
+	return 0;
+}
+	
+\end{lstlisting}
+\vspace{1cm}
+
+\section*{Exercise 3}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+	//Version 1 Integer division case
+	int a,b,c;
+	printf("Enter the value of a and b : ");
+	scanf("%d %d" ,&a,&b);
+	c = a/b;
+	printf("The integer division a/b = %d",c);
+	//Version 2 Real division with precision 3
+	int a,b;
+	float c;
+	printf("Enter the value of a and b : ");
+	scanf("%d %d" ,&a,&b);
+	c = (float) a/b;
+	printf("The integer division a/b = %.3f",c);
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+
+\section*{Exercise 4}
+\vspace{0.5cm}
+
+\textbf{Code:}
+\begin{lstlisting}
+#include <stdio.h>
+#include <math.h>
+int main(){
+	float P,S,R;
+	printf("Enter the value of the circle radius R : ");
+	scanf("%f" ,&R);
+	S = M_PI*R*R;
+	P = 2*M_PI*R;
+	printf("The Area of the circle: %f\n",S);
+	printf("The Perimeter of the circle: %f\n",P);
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+\section*{Exercise 5}
+\vspace{0.5cm}
+
+\textbf{Code:}
+\begin{lstlisting}
+#include <stdio.h>
+int main() {
+	int A, B, C, D;
+	A = 4, B = 1, C = A++ > B || B++ != 2;
+	printf("Resultat 1 : A = %d B = %d C = %d\n", A, B, C);
+	// Resultat 1 : A = 5 B = 1 C = 1
+	A = 4 ; B = 1 ; C = ++A == 5 && ++B == 2;
+	printf("Resultat 2 : A = %d B = %d C = %d\n", A, B, C);
+	// Resultat 2 : A = 5 B = 2 C = 1
+	A= 1, D = ++A == (B = C = 2) ;
+	printf ("Reaultat 3 : A = %d B = %d C = %d D = %d\n", A, B, C, D);
+	// Reaultat 3 : A = 2 B = 2 C = 2 D = 1
+	A = B = C = 10 ; A += B += C ;
+	printf("Resultat 4 : A = %d B = %d C = %d\n", A, B, C);
+	// Resultat 4 : A = 30 B = 20 C = 10
+	A = 5; C = A << 1; B = A >> 2;
+	printf("Resultat 5 : A = %d B = %d C = %d\n", A, B, C);
+	// Resultat 5 : A = 5 B = 1 C = 10
+	A= 4, B = 1; C = A & B; A = B | 2; B ^= 4;
+	printf("Resultat 6 : A = %d B = %d C = %d\n", A, B, C);
+	// Resultat 6 : A = 3 B = 5 C = 0
+	char X = 'C' ;
+	printf("Entier = %d,\n Octal = %o,\n Hexa = %x\n", X, X, X);
+	// Entier = 67, Octal = 103, Hexa = 43
+	int T = "ABC";
+	printf(" T comme entier = %d \n", T) ;
+	// ???
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+\section*{Exercise 6}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include <stdio.h>
+int main() {
+	//Version 1 Testing point inside a rectangle
+	float A_X ,A_Y ,BL_X ,BL_Y ,TR_X ,TR_Y;
+	printf("Enter the coordinates of the bottom left corner of the
+	rectangle: ");
+	scanf("%f %f" ,&BL_X ,&BL_Y);
+	printf("Enter the coordinates of the top right corner of the
+	rectangle: ");
+	scanf("%f %f" ,&TR_X ,&TR_Y);
+	printf("Enter the coordinates of the point: ");
+	scanf("%f %f" ,&A_X ,&A_Y);
+	if (A_X >= BL_X && A_X <= TR_X && A_Y >= BL_Y && A_Y <= TR_Y) {
+		printf("The point is inside the rectangle \n");
+		} else {
+		printf("The point is outside the rectangle \n");
+		}
+	//Version 2 Testing point inside a circle
+	float A_X ,A_Y ,O_X ,O_Y ,R;
+	printf("Enter the coordinates of the point A: ");
+	scanf("%f %f" ,&A_X ,&A_Y);
+	printf("Enter the coordinates of the point center point O: ");
+	scanf("%f %f" ,&O_X ,&O_Y);
+	printf("Enter the radius of the circle: ");
+	scanf("%f" ,&R);
+	if ((A_X - O_X)*(A_X - O_X) + (A_Y - O_Y)*(A_Y - O_Y) <= R*R) {
+		printf("The point A is inside the circle\n");
+		} else {
+		printf("The point A is outside the circle\n");
+		}
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+\newpage
+\section*{Exercise 7}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include <stdio.h>
+int main() {
+	//Version 1 Using Conditional Instructions
+	int a,b,c;
+	printf("Enter the value of a, b and c: ");
+	scanf("%d %d %d", &a, &b, &c);
+	if(a >= b) {
+		if(a >= c) {
+			printf("a = %d is the largest number\n",a);
+			} else {
+			printf("c = %d is the largest number\n",c);
+			}
+		} else {
+		if(b >= c) {
+			printf("b = %d is the largest number\n",b);
+			} else {
+			printf("c = %d is the largest number\n",c);
+			}
+		}
+	//Version 2 Using Ternary Operator
+	int a,b,c,max;
+	printf("Enter the value of a, b and c: ");
+	scanf("%d %d %d", &a, &b, &c);
+	max = (a >= b) ? (a >= c ? a : c) : (b >= c ? b : c);
+	printf("The maximum value is %d\n",max);
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+
+\section*{Exercise 8}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include <stdio.h>
+int main() {
+int A,B,C,D,E;
+A = 5; B= (A<0) ? 1 ,2 ,3:10 ,20 ,30; printf("B=%d\n",B); /*B = 10*/
+A = -5; B = (A<0) ? 1 ,2 ,3:10 ,20 ,30; printf("B=%d\n",B); /*B = 3*/
+A = 5; C= (A<0) ? (1,2,3) :(10 ,20 ,30); printf("C=%d\n",C); /*C = 30*/
+A = -5; C= (A<0) ? (1,2,3) :(10 ,20 ,30); printf("C=%d\n",C); /*C = 3*/
+D = -1,-2,-3; printf("D=%d\n",D); /*D = -1*/
+E = (-1,-2,-3); printf("E=%d\n",E); /*E = -3*/
+return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+\section*{Exercise 9}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include <stdio.h>
+int main() {
+	//Version 1 Using Conditional Instructions
+	int age;
+	printf("Enter the kid's age: ");
+	scanf("%d", &age);
+	if (age > 14 || age < 6) {
+		printf("The age must be between 6 and 14 to be in junior categories\n"); 
+	} else {
+		printf("Poussin");
+		else if(age >= 8 && age <= 9) {
+		printf("Pupille");
+		else if(age >= 10 && age <= 11) {
+		printf("Minime");
+		else{
+		printf("Cadet");
+	}
+	//Version 2 Using Switch Cases
+	int age;
+	printf("Enter the kid's age: ");
+	scanf("%d", &age);
+	if (age > 14 || age < 6) {
+		printf("The age must be between 6 and 14 to be in junior categories\n"); 
+	} else {
+	switch (age) {
+		case 6: case 7:
+		printf("Poussin");
+		break;
+		case 8: case 9:
+		printf("Pupille");
+		break;
+		case 10: case 11:
+		printf("Minime");
+		break;
+		default:
+		printf("Cadet");
+		break;
+		}
+	}
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+
+\section*{Exercise 10}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include <stdio.h>
+#include <math.h>
+int main() {
+	float A, B, C;
+	float delt , x_1 , x_2 , re , im;
+	printf("Enter coefficients A, B, and C: ");
+	scanf("%f %f %f", &A, &B, &C);
+	if (A == 0) {
+		if (B == 0) {
+			printf("No solution\n");
+			} else {
+			printf("The solution: x = %.2f\n", -C / B);
+			}
+		} else {
+		delt = B * B - 4 * A * C;
+		if (delt > 0) {
+			x_1 = (-B + sqrt(delt)) / (2 * A);
+			x_2 = (-B - sqrt(delt)) / (2 * A);
+			printf("The solutions : x1 = %.2f, x2 = %.2f\n", x_1 ,
+			x_2);
+			} else if (delt == 0) {
+			x_1 = -B / (2 * A);
+			printf("The solution : x = %.2f\n", x_1);
+			} else {
+			re = -B / (2 * A);
+			im = sqrt(-delt) / (2 * A);
+			printf("The complex olutions: x1 = %.2f + %.2fi , x2 =
+			%.2f - %.2fi\n",re ,im ,re ,im);
+			}
+		}
+		return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+
+\section*{Exercise 11}
+\vspace{0.5cm}
+
+\textbf{Code:} 
+\begin{lstlisting}
+#include <stdio.h>
+int main() {
+	int birth_day , birth_month , birth_year;
+	int current_day , current_month , current_year;
+	int age;
+	printf("Enter your birth date : ");
+	scanf("%d %d %d", &birth_day , &birth_month , &birth_year);
+	printf("Enter today 's date : ");
+	scanf("%d %d %d", &current_day , &current_month , &current_year);
+	age = current_year - birth_year;
+	if (current_month < birth_month || (current_month == birth_month
+	&& current_day < birth_day)) {
+		age --;
+		}
+	printf("Your age is: %d years , Happy Birth Day!", age);
+	return 0;
+}
+\end{lstlisting}
+\vspace{1cm}
+
+
+\end{document}
