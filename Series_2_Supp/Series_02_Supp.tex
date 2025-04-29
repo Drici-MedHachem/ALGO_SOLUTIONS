@@ -1,0 +1,391 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % For including images
+\usepackage{fancyhdr} % For custom headers and footers
+\usepackage{amsmath} % For math equations
+\usepackage{listings} % For code listings
+\usepackage{xcolor} % For coloring code
+\usepackage{geometry} % For adjusting page margins
+\geometry{a4paper, margin=1in}
+
+% Define the header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Drici Mohammed Hachem - Group A5}}
+\fancyfoot[C]{\thepage}
+
+% Define code listing style for C
+\lstset{
+	language=C, % Set language to C
+	basicstyle=\small\ttfamily, % Basic font style
+	numbers=left, % Add line numbers on the left
+	numberstyle=\tiny\color{gray}, % Style for line numbers
+	backgroundcolor=\color{white}, % Background color
+	keywordstyle=\color{blue}, % Color for keywords (e.g., int, if, return)
+	commentstyle=\color{green}, % Color for comments (e.g., // or /* ... */)
+	stringstyle=\color{red}, % Color for strings (e.g., "Hello, World!")
+	showstringspaces=false, % Don't show spaces in strings
+	frame=single, % Add a frame around the code
+	breaklines=true, % Automatically break long lines
+	tabsize=4, % Set tab size to 4 spaces
+	captionpos=b, % Caption position (bottom)
+	xleftmargin=0pt, % Remove left margin
+	framexleftmargin=0pt, % Align frame with the left margin
+	morekeywords={printf, scanf, main, include} % Add additional C-specific keywords
+}
+
+\begin{document}
+	
+	% First Page
+	\begin{titlepage}
+		\centering
+		\vspace*{2cm}
+		
+		\textbf{\Large People's Democratic Republic of Algeria}\\
+		\vspace{0.5cm}
+		\textbf{\large Echahid Hamma Lakhdar University}\\
+		
+		\vspace{1cm}
+		\includegraphics[width=10cm]{university_logo.png} % Replace with your university logo file name
+		
+		\vspace{1.5cm}
+		\rule{\textwidth}{1pt}
+		\vspace{0.5cm}
+		
+		\textbf{\Large DS \& ALGO : Series 02}\\
+		\vspace{0.5cm}
+		\rule{\textwidth}{1pt}
+		\vspace{0.5cm}
+		
+		\vspace{1.5cm}
+		\textbf{\Huge Drici Mohammed Hachem}\\
+		\vspace{0.5cm}
+		\textbf{\Large Group A5}\\
+		
+		\vfill
+	\end{titlepage}
+	
+	% Second Page
+	\newpage
+	\section*{Exercise 1}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+    int i= 1;
+    while(i <= 10) printf("%d \n",i++); 
+    return 0;
+}
+\end{lstlisting}
+	\vspace{1cm}
+	
+	\section*{Exercise 2}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+    int i;
+    for(i = 1 ; i <= 100; i++) printf("%d \n",i);
+    return 0;
+}
+\end{lstlisting}
+	\vspace{1cm}
+	
+	\section*{Exercise 3}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h> 
+
+int main() {
+    int i = 2;
+    do {
+        printf("%d \n",i);
+        i += 2;
+    }while(i <= 20);
+    return 0;
+}
+\end{lstlisting}
+	\vspace{1cm}
+	
+	\section*{Exercise 4}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+    int n,i;
+    do {
+        printf("Enter a strictly positive integer n :");
+        scanf("%d",&n);
+    }while(n < 0);
+    if (n % 2 == 1) i = n; else  i = n+1;
+    printf("First %d \n",n+99);
+    for(i ; i <= n+99 ; i += 2) printf("%d \n",i);
+    return 0;
+
+}
+\end{lstlisting}
+	\vspace{1cm}
+	
+	\section*{Exercise 5}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+    int n,i = 2;
+    do{
+        printf("Enter a strictly positive integer n : ");
+        scanf("%d",&n);
+    }while(n < 0);
+    
+    while(i <= n) {
+        printf("%d \n",i);
+        i += 2;
+    }
+    return 0;
+}
+\end{lstlisting}
+	\vspace{1cm}
+\newpage
+	\section*{Exercise 6}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+    int n,i;
+    do{
+        printf("Enter a strictly positive integer n : ");
+        scanf("%d",&n);
+        if(n < 0) printf("Error! n must be strictly postiive");
+
+    }while(n < 0);
+    for( i = 1 ; i <= 9 ; i++) {
+        printf("%d x %d  = %d \n", n , i , n*i);
+    }
+    return 0;
+}
+\end{lstlisting}
+	\vspace{1cm}
+	
+	\section*{Exercise 7}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+    int f_0 = 0;
+    int f_1 = 1;
+    int n,f_n ,temp,i =2;
+    do {
+        printf("Enter the which fibonnaci term to calculate : ");
+        scanf("%d",&n);
+
+    }while(n < 2);
+
+    printf("F(0) = 0 \nF(1) = 1 \n");
+    while(i< n) {
+        f_n = f_0 + f_1;
+        f_0 = f_1;
+        f_1 = f_n;
+        printf("F(%d) = %d \n",i,f_n);
+        i++;
+    }    
+    return 0;
+}
+\end{lstlisting}
+	\vspace{1cm}
+	
+	\section*{Exercise 8}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+int main() {
+    int n , i;
+    float sum = 0.0;
+    do {
+        printf("Enter tehe number of terms to calculate in the sum : ");
+        scanf("%d",&n);
+    }while (n < 1);
+    for( i = 0 ; i <= n ; i++) {
+        sum += 1/i;
+    }
+    printf("The harmonic sum up to %d  = %f",n,sum);
+    return 0;
+}
+\end{lstlisting}
+	\vspace{1cm}
+	
+	\section*{Exercise 9}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+int main() {
+    int n , i;
+    do {
+        printf("Enter a natural number n : ");
+        scanf("%d",&n);
+    }while (n < 1);
+    printf("The divisiors of %d are : 1 ",n);
+    for(i = 2 ; i < n/2 ; i++ ) {
+        if(n % i == 0) printf("%d ",i); 
+    }
+    printf("%d",n);
+}
+\end{lstlisting}
+	\vspace{1cm}
+\newpage
+	\section*{Exercise 10}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+    //Same as problem 8 ? 
+}
+\end{lstlisting}
+	\vspace{1cm}
+	
+	\section*{Exercise 11}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+    int n,i,sum = 0;
+    do {
+        printf("Enter the term to calculate the sum of the first n odd squares : ");
+        scanf("%d",&n);
+    }while(n < 1);
+    for(i = 1 ; i <= n ; i++) {
+        sum += (2*i - 1) * (2*i -1);
+    }
+    printf("The sum of the first %d odd squares = %d",n,sum);
+    return 0;
+}
+\end{lstlisting}
+	\vspace{1cm}
+	
+	\section*{Exercise 12}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+    //Same as problem 12 ?
+}
+\end{lstlisting}
+	\vspace{1cm}
+	
+	\section*{Exercise 13}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+    int n,i, sum = 0;
+    do {
+        printf("Enter a natural number n : ");
+        scanf("%d",&n);
+    }while (n < 0);
+    i = n;
+    while(0 < i) {
+        sum += i % 10;
+        i /= 10;
+    }
+    printf("The sum of digits of %d = %d",n,sum);
+    return 0;
+}
+\end{lstlisting}
+	\vspace{1cm}
+	
+	\section*{Exercise 14}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+    int cnt = 1,n,i = 3,j,isPrime = 1,sum;
+    do {
+        printf("Enter the number n to calculate the sum of primes up to n : ");
+        scanf("%d",&n);
+    } while(n < 1);
+    if(n == 1) {
+        sum = 2;
+    }  else {
+        sum = 2;
+        while(cnt <= n) {
+            for(j = 2 ; j < n/2 ; j++) {
+                if(i % j == 0) {
+                    isPrime = 0;
+                }
+            }
+            if(isPrime) {
+                sum += i;
+                cnt++;
+            }
+
+            isPrime = 1;
+            i++;
+        }
+    }
+    print("The sum of the first %d prime numbers : %d",n,sum);
+    return 0;
+
+}
+\end{lstlisting}
+	\vspace{1cm}
+	
+	\section*{Exercise 15}
+	\vspace{0.5cm}
+	
+	\textbf{Code:}
+\begin{lstlisting}
+#include<stdio.h>
+
+int main() {
+    int n,i,sum = 0;
+    do {
+        printf("Enter the term to calculate the sum of the first n odd cubes : ");
+        scanf("%d",&n);
+    }while(n < 1);
+    for(i = 1 ; i <= n ; i++) {
+        sum += (2*i - 1) * (2*i -1) * (2*i-1);
+    }
+    printf("The sum of the first %d odd cubes = %d",n,sum);
+    return 0;
+}
+\end{lstlisting}
+	\vspace{1cm}
+
+\end{document}
